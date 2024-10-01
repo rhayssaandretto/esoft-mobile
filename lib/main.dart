@@ -10,44 +10,88 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Atividade 26/08',
+      title: 'Aplicação Bancária',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Card List'),
+          title: const Text('Minhas Contas'),
         ),
-        body: MyCardList(),
+        body: const MyCardList(),
       ),
     );
   }
 }
 
 class MyCardList extends StatelessWidget {
-  final List<String> items =
-      List<String>.generate(5, (index) => "Card $index");
-
-  MyCardList({super.key});
+  const MyCardList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        return Card(
-          margin: const EdgeInsets.all(10.0),
-          color: Colors.pink[100],
+    return ListView(
+      children: const [
+        Card(
+          margin: EdgeInsets.all(10.0),
+          color: Colors.blue,
+          elevation: 5,
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: EdgeInsets.all(15.0),
             child: Text(
-              items[index],
-              style: const TextStyle(fontSize: 18),
-
+              'Conta Corrente: R\$ 1.200,00',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
-        );
-      },
+        ),
+        Card(
+          margin: EdgeInsets.all(10.0),
+          color: Colors.green,
+          elevation: 5,
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Text(
+              'Conta Poupança: R\$ 3.500,00',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        Card(
+          margin: EdgeInsets.all(10.0),
+          color: Colors.pink,
+          elevation: 5,
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Text(
+              'Cartão de Crédito: R\$ 500,00 (Limite)',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        Card(
+          margin: EdgeInsets.all(10.0),
+          color: Colors.red,
+          elevation: 5,
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Text(
+              'Empréstimo: R\$ 2.000,00 (Devido)',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        Card(
+          margin: EdgeInsets.all(10.0),
+          color: Colors.purple,
+          elevation: 5,
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Text(
+              'Investimentos: R\$ 10.000,00',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
